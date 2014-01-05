@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Wiki Lanka</title>
+        <meta name="description" content="Knowledge hub for tourists in Sri Lanka" />
+        <meta name="author" content="Pixelz" />
+        <title>{% block title %}Wiki Lanka{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{asset('bundles/wikilankastyle/css/style.css')}}" />
+        <script src="js/modernizr.custom.63321.js"></script>
+		<!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
+		
+        <style>	
+			@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+			body {
+				background: #7f9b4e url({{asset('bundles/wikilankastyle/images/bg2.jpg')}}) no-repeat center top;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				background-size: cover;
+			}
+			.container > header h1,
+			.container > header h2 {
+				color: #fff;
+				text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+			}
+		</style>
+        
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <div class="container">
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-    </body>
+        </div>
 </html>
