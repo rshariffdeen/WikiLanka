@@ -1,0 +1,4 @@
+wiki_lanka_style:
+    resource: "@WikiLankaStyleBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,7 @@
+parameters:
+#    wiki_lanka_style.example.class: WikiLanka\Bundle\StyleBundle\Example
+
+services:
+#    wiki_lanka_style.example:
+#        class: %wiki_lanka_style.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

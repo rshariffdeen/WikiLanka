@@ -1,0 +1,3 @@
+wiki_lanka_style_homepage:
+    pattern:  /ayubowan/{name}
+    defaults: { _controller: WikiLankaStyleBundle:Default:index }
