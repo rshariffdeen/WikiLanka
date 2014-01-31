@@ -136,8 +136,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // wiki_lanka_facebook_homepage
-        if (0 === strpos($pathinfo, '/welcome') && preg_match('#^/welcome/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'wiki_lanka_facebook_homepage')), array (  '_controller' => 'WikiLanka\\Bundle\\FacebookBundle\\Controller\\WelcomeController::startAction',));
+        if ($pathinfo === '/welcome') {
+            return array (  '_controller' => 'WikiLanka\\Bundle\\FacebookBundle\\Controller\\WelcomeController::startAction',  '_route' => 'wiki_lanka_facebook_homepage',);
         }
 
         if (0 === strpos($pathinfo, '/home')) {

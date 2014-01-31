@@ -14,8 +14,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-
-require_once "base_facebook.php";
+namespace WikiLanka\Bundle\FacebookBundle\API;
+use WikiLanka\Bundle\FacebookBundle\API\BaseFacebook;
 
 /**
  * Extends the BaseFacebook class with the intent of using

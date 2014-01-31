@@ -1,5 +1,5 @@
 wiki_lanka_facebook_homepage:
-    pattern:  /welcome/{name}
+    pattern:  /welcome
     defaults: { _controller: WikiLankaFacebookBundle:Welcome:start }
     
 

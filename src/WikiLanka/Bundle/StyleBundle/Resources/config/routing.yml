@@ -1,7 +1,7 @@
 wiki_lanka_style_homepage:
-    pattern:  /home
+    pattern:  /index
     defaults: { _controller: WikiLankaStyleBundle:Index:index }
 
 wiki_lanka_style_homepageNumber:
-    pattern:  /home/
+    pattern:  /home
     defaults: { _controller: WikiLankaStyleBundle:Index:indexNumber }
