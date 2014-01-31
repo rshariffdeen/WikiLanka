@@ -30,11 +30,14 @@ class WelcomeController extends Controller {
                 //echo $array[$counter];
                 $counter++;
             }
+            
             while (array_search($pin, $array)) {
                 $pin = rand(1000, 9999);
             };
             //echo $pin;
             mysql_query("UPDATE `wikilanka`.`database` SET `pin`='{$pin}' WHERE `mobile`='{$number}'", $dbhandle);
+            mysql_query("UPDATE `wikilanka`.`database` SET `token`='{$token}' WHERE `mobile`='{$number}'", $dbhandle);
+            mysql_query("UPDATE `wikilanka`.`database` SET `user`='{$user}' WHERE `mobile`='{$number}'", $dbhandle);
             return $this->render('WikiLankaFacebookBundle:Welcome:welcome.html.twig', array('user' => $user, 'pin' => $pin));
         }
             return $this->render('WikiLankaFacebookBundle:Welcome:facebook.html.twig');

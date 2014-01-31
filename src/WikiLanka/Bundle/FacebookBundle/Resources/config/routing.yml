@@ -3,3 +3,6 @@ wiki_lanka_facebook_homepage:
     defaults: { _controller: WikiLankaFacebookBundle:Welcome:start }
     
 
+wiki_lanka_status_update :
+    pattern : /statusupdate
+    defaults: { _controller: WikiLankaFacebookBundle:StatusUpdate:updateStatus}

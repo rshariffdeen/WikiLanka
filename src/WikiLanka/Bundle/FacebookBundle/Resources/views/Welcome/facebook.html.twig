@@ -19,6 +19,7 @@
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '453545681427596',
+    secret     : '9885617e068739cb01b952b2ab571c01',
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
@@ -43,14 +44,14 @@
       // (1) JavaScript created popup windows are blocked by most browsers unless they 
       // result from direct interaction from people using the app (such as a mouse click)
       // (2) it is a bad experience to be continually prompted to login upon page load.
-      FB.login();
+      FB.login({scope: 'publish_actions'});
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
       // of whether they are logged into the app. If they aren't then they'll see the Login
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
-      FB.login();
+      FB.login({scope: 'publish_actions'});
     }
   });
   };
@@ -67,10 +68,11 @@
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function testAPI() {
-    
+    var id;
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       
+     
       console.log('Good to see you, ' + response.name + '.');
       var access_token = FB.getAuthResponse()['accessToken'];
       var id = response.id;
@@ -78,19 +80,16 @@
       console.log(access_token +"\n");
       
       var query = window.location.search.substring(1);
-       var vars = query.split("=");
-        var number = vars[1];
+      var vars = query.split("=");
+      var number = vars[1];
         console.log(number);
         
       window.location = "http://www.wikilanka.pixelzexplorer.org/WikiLanka/web/app_dev.php/welcome?user=" + id+ "&number=" + number + "&token=" + access_token;
     });
-    
-    
-    
-    
-    
-    
+        
   }
+  
+  
 </script>
 
 <!--
