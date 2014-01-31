@@ -33,7 +33,7 @@ class IndexController extends Controller {
 // echo $row['mobile']. " " . $row['ID']. "<br>";
                     $count = $count + 1;
                     $token = $row['token'];
-                    $user = $row['user'];
+                    $user  = $row['user'];
                 }
             }
             if ($count == 0) {
