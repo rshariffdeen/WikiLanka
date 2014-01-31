@@ -39,10 +39,25 @@ class IndexController extends Controller {
             if ($count == 0) {
                 mysql_query("INSERT INTO `wikilanka`.`database` (`mobile`,`token`) VALUES ($number,$number)", $dbhandle);
                 mysql_close($dbhandle);
+                 $response = $this->forward('WikiLankaFacebookBundle:Welcome:start', array(
+            'number'  => $Enumber
+            
+    ));
+            }
+            else{
+                 $response = $this->forward('WikiLankaFacebookBundle:Welcome:start', array(
+            'number'  => $Enumber,
+            'token' => $token,
+                'user' => $user
+    ));
                 
             }
             
-            return $this->render('WikiLankaStyleBundle:Index:facebook.html.twig',array('number' => $Enumber));
+           
+
+    // ... further modify the response or return it directly
+
+    return $response;
         }
     
 }

@@ -2,6 +2,7 @@
 
 namespace WikiLanka\Bundle\FacebookBundle\Controller;
 
+use WikiLanka\Bundle\FacebookBundle\API\Facebook;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -11,13 +12,12 @@ class WelcomeController extends Controller {
         $number = $request->get('number');
         $token = $request->get('token');
         $user = $request->get('user');
+            $username = "adminpixelz";
+            $password = "pixelz313";
+            $hostname = "mysql.pixelzexplorer.org";
 
-        require 'facebook.php';
-        $facebook = new Facebook(array(
-                    'appId' => '453545681427596',
-                    'secret' => '9885617e068739cb01b952b2ab571c01',
-                ));
-
+             $dbhandle = mysql_connect($hostname, $username, $password)
+                    or die("Unable to connect to MySQL");
 
         if ($user) {
             $query = mysql_query("SELECT PIN FROM `wikilanka`.`database`");
@@ -37,6 +37,10 @@ class WelcomeController extends Controller {
             mysql_query("UPDATE `wikilanka`.`database` SET `pin`='{$pin}' WHERE `mobile`='{$number}'", $dbhandle);
             return $this->render('WikiLankaFacebookBundle:Welcome:welcome.html.twig', array('user' => $user, 'pin' => $pin));
         }
+            return $this->render('WikiLankaFacebookBundle:Welcome:facebook.html.twig');
+       
     }
 
 }
+
+
