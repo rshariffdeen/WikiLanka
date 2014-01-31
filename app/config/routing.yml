@@ -1,3 +1,7 @@
+wiki_lanka_facebook:
+    resource: "@WikiLankaFacebookBundle/Resources/config/routing.yml"
+    prefix:   /
+
 wiki_lanka_style:
     resource: "@WikiLankaStyleBundle/Resources/config/routing.yml"
     prefix:   /

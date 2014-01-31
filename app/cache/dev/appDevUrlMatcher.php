@@ -135,9 +135,26 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // wiki_lanka_style_homepage
-        if (0 === strpos($pathinfo, '/ayubowan') && preg_match('#^/ayubowan/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'wiki_lanka_style_homepage')), array (  '_controller' => 'WikiLanka\\Bundle\\StyleBundle\\Controller\\DefaultController::indexAction',));
+        // wiki_lanka_facebook_homepage
+        if (0 === strpos($pathinfo, '/welcome') && preg_match('#^/welcome/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'wiki_lanka_facebook_homepage')), array (  '_controller' => 'WikiLanka\\Bundle\\FacebookBundle\\Controller\\WelcomeController::startAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/home')) {
+            // wiki_lanka_style_homepage
+            if ($pathinfo === '/home') {
+                return array (  '_controller' => 'WikiLanka\\Bundle\\StyleBundle\\Controller\\IndexController::indexAction',  '_route' => 'wiki_lanka_style_homepage',);
+            }
+
+            // wiki_lanka_style_homepageNumber
+            if (rtrim($pathinfo, '/') === '/home') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'wiki_lanka_style_homepageNumber');
+                }
+
+                return array (  '_controller' => 'WikiLanka\\Bundle\\StyleBundle\\Controller\\IndexController::indexNumberAction',  '_route' => 'wiki_lanka_style_homepageNumber',);
+            }
+
         }
 
         // _welcome

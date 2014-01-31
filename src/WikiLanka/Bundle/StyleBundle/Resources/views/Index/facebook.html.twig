@@ -1,0 +1,47 @@
+{% extends '::base.html.twig'%}
+
+{% block body %}
+<h1><strong>Wiki Lanka</strong></h1>
+<h2>Knowledge hub for tourists in Sri Lanka</h2>
+<div class="support-note">
+    <span class="note-ie">Sorry, only modern browsers.</span>
+</div>
+
+<h4 align="center">You are connected to Facebook</h4><br><br><br>
+Please disable pop-up blocking to enable facebook login
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=453545681427596";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+   
+        FB.init({
+          appId      : '453545681427596', 
+      
+          status     : true, // check the login status upon init?
+          cookie     : true, // set sessions cookies to allow your server to access the session?
+          xfbml      : true  // parse XFBML tags on this page?
+        });
+
+  
+      };
+
+
+      (function(d, debug){
+         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement('script'); js.id = id; js.async = true;
+         js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+         ref.parentNode.insertBefore(js, ref);
+       }(document, /*debug*/ false));
+        </script>
+
+{% endblock %}
+
