@@ -43,7 +43,7 @@ class __TwigTemplate_cc980b67aabf2f3cca2443e7f349d89a2a2b1db169ac1d976a85201a7ca
 <section class=\"main\">
 
     <p align=\"center\">
-    <form class=\"form-4\" action=\"\">
+    <form class=\"form-4\" action=\"home\">
         <br><br>
 
 
