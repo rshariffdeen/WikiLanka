@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<div class="codrops-top"><p align="center">Product of Pixelz</div><!--/ Codrops top bar -->
+
+<header>
+
+    <h1><strong>Wiki Lanka</strong></h1>
+    <h2>Knowledge hub for tourists in Sri Lanka</h2>
+    <div class="support-note">
+        <span class="note-ie">Sorry, only modern browsers.</span>
+    </div>
+
+</header>
+
+<section class="main">
+
+    <p align="center" >
+    <p align="center">&nbsp;</p>
+
+
+    </p><p align="center">
+        <img  src="https://graph.facebook.com/{{user}}/picture?width=9999&height=9999" width="200" height="200">
+ 
+        <h4 align="center">You are connected to Facebook</h4><br>
+    	
+</p>
+<h4 align="center">Your Mobile is not Synced with our System</h4><br>
+<p align="center">Please enter the following PIN Number to your Dialog USSD</p>
+	  <h4 align="center">Your PIN Number:</h4>
+		 <p align="center">
+                     <strong>{{pin}}</strong>
+
+</p>       
+​
+<p align="center">
+<h2 align="center" > powered by <br>
+    <a href="http://www.pixelzexplorer.org"><img src="{{asset('bundles/wikilankastyle/images/Logo_Pixelz.png')}}" width="124" height="50" alt="Pixelz" longdesc="http://www.pixelzexplorer.org"></a></h2></p>
+</section>
+
+
+{% endblock %}

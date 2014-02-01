@@ -12,14 +12,13 @@ class WelcomeController extends Controller {
         $number = $request->get('number');
         $token = $request->get('token');
         $user = $request->get('user');
-            $username = "adminpixelz";
-            $password = "pixelz313";
-            $hostname = "mysql.pixelzexplorer.org";
-
-             $dbhandle = mysql_connect($hostname, $username, $password)
-                    or die("Unable to connect to MySQL");
+        $username = "adminpixelz";
+        $password = "pixelz313";
+        $hostname = "mysql.pixelzexplorer.org";
+         $dbhandle = mysql_connect($hostname, $username, $password) or die("Unable to connect to MySQL");
 
         if ($user) {
+            
             $query = mysql_query("SELECT PIN FROM `wikilanka`.`database`");
             $pin = 1;
             $array = array();
@@ -38,7 +37,7 @@ class WelcomeController extends Controller {
             mysql_query("UPDATE `wikilanka`.`database` SET `pin`='{$pin}' WHERE `mobile`='{$number}'", $dbhandle);
             mysql_query("UPDATE `wikilanka`.`database` SET `token`='{$token}' WHERE `mobile`='{$number}'", $dbhandle);
             mysql_query("UPDATE `wikilanka`.`database` SET `user`='{$user}' WHERE `mobile`='{$number}'", $dbhandle);
-            return $this->render('WikiLankaFacebookBundle:Welcome:welcome.html.twig', array('user' => $user, 'pin' => $pin));
+            return $this->render('WikiLankaFacebookBundle:Welcome:welcomeNew.html.twig', array('user' => $user, 'pin' => $pin));
         }
             return $this->render('WikiLankaFacebookBundle:Welcome:facebook.html.twig');
        

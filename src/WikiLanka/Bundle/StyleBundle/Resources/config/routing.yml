@@ -5,3 +5,4 @@ wiki_lanka_style_homepage:
 wiki_lanka_style_homepageNumber:
     pattern:  /home
     defaults: { _controller: WikiLankaStyleBundle:Index:indexNumber }
+    
